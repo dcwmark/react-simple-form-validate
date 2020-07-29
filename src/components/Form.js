@@ -8,7 +8,7 @@ const Form = (props) => {
   const [phone, setPhone] = useState('');
   const [url, setUrl] = useState('');
 
-  const setError = () => props.setMsg.setValid(false);
+  const setError = () => props.setValid(false);
 
   const nameValidator = () => {
     if (name.length <= 3 || name.length >= 30) {
@@ -43,15 +43,20 @@ const Form = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    props.setMsg.setValid(true);
+    props.setValid(true);
 
     validator['name'](name);
     validator['email'](email);
     validator['phone'](phone);
     validator['url'](url);
 
-    if (props.setMsg.valid) document.getElementById("form-id").reset();
-  };
+    if (props.valid) {
+      setName('');
+      setEmail('');
+      setPhone('');
+      setUrl('');
+    }
+  }
 
   return (
     <>

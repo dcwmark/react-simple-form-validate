@@ -8,7 +8,7 @@ const App = () => {
 
   return (
     <>
-      <Form  setMsg={{ valid, setValid }} />
+      <Form  valid={ valid } setValid={ setValid } />
       <Message valid={ valid } />
     </>
   );
